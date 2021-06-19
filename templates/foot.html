@@ -1,0 +1,66 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RCPU</title>
+    <link rel="stylesheet" href="{%static 'css/foot.css'%}">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="{%static 'js/foot.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-bez@1.0.11/src/jquery.bez.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+</head>
+<div class="mode" id="preloader">
+         <h2>ROTARACT CLUB </h2>
+         <h3>OF </h3>
+         <h4> PARUL UNIVERISTY</h4>
+       <img src="{% static 'Wheel.png'%}" class="p">
+</div>
+<body>
+      
+           
+           <nav class="nav">
+              <ul>
+                 
+                 <li><a href="#">EVENTS</a></li>
+                 <li><a href="#">CONTACT US</a></li>
+              </ul>
+           </nav>
+   
+      
+    
+    
+    
+    {% block content %}
+    
+    
+    {% endblock content %}
+    
+    
+    <script type="text/javascript">
+
+        paceOptions = {
+        ajax: true,
+        document: true,
+        eventLag: false
+        };
+
+        Pace.on('done', function() {
+        $('.p').delay(500).animate({top: '30%', opacity: '1'}, 600, $.bez([0.19,1,0.22,1]));
+
+
+        $('#preloader').delay(2500).animate({top: '-100%'}, 1500, $.bez([0.19,1,0.22,1]));
+
+        TweenMax.from(".title", 2, {
+             delay: .6,
+                  y: 10,
+                  opacity: 0,
+                  ease: Expo.easeInOut
+            })
+       });
+
+      </script>
+      
+  </body>
+</html>
